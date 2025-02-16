@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code2, Rocket, Server, Cpu, Database, Cloud, Lock } from "lucide-react";
+
 const services = [{
   icon: <Code2 className="w-6 h-6" />,
   title: "Frontend Development",
@@ -26,41 +27,47 @@ const services = [{
   title: "Security Solutions",
   description: "Implementing robust security practices"
 }];
+
 const technologies = ["C#", ".NET Core", "React", "TypeScript", "Node.js", "SQL Server", "MongoDB", "Azure", "AWS", "Docker", "Kubernetes", "Git", "REST APIs", "GraphQL", "Redis", "CI/CD"];
+
 const Index = () => {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
   if (!mounted) return null;
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 py-20">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="text-center">
-          <motion.div initial={{
-          scale: 0.9,
-          opacity: 0
-        }} animate={{
-          scale: 1,
-          opacity: 1
-        }} transition={{
-          delay: 0.2
-        }} className="mb-8">
+      <section className="hero-section min-h-screen flex items-center justify-center px-4 py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent via-accent/95 to-accent z-0"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center relative z-10"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="mb-8"
+          >
             <Code2 className="w-16 h-16 mx-auto text-primary mb-6" />
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Al-Laythi Software Services</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Al-Laythi Software Services
+          </h1>
           <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto">
             Crafting cutting-edge solutions with modern technology
           </p>
-          <a href="#contact" className="bg-primary text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
+          <a 
+            href="#contact" 
+            className="bg-primary text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+          >
             Get in Touch
           </a>
         </motion.div>
@@ -151,6 +158,8 @@ const Index = () => {
           <p>© 2024 al-Laythi Software Services. All rights reserved.</p>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
