@@ -43,7 +43,6 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-section min-h-screen flex items-center justify-center px-4 py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent via-accent/95 to-accent z-0"></div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
