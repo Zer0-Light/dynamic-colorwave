@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code2, Rocket, Server, Cpu, Database, Cloud, Lock } from "lucide-react";
+import { SparklesCore } from "@/components/ui/sparkles";
+
 const services = [{
   icon: <Code2 className="w-6 h-6" />,
   title: "Frontend Development",
@@ -26,71 +28,57 @@ const services = [{
   title: "Security Solutions",
   description: "Implementing robust security practices"
 }];
+
 const technologies = ["C#", ".NET Core", "React", "TypeScript", "Node.js", "SQL Server", "MongoDB", "Azure", "AWS", "Docker", "Kubernetes", "Git", "REST APIs", "GraphQL", "Redis", "CI/CD"];
-const MatrixRain = () => {
-  useEffect(() => {
-    const container = document.createElement('div');
-    container.className = 'matrix-rain';
-    document.body.appendChild(container);
-    const columns = Math.floor(window.innerWidth / 20);
-    const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-    for (let i = 0; i < columns; i++) {
-      const column = document.createElement('div');
-      column.className = 'matrix-column';
-      column.style.left = `${i * 20}px`;
-      column.style.animationDuration = `${Math.random() * 2 + 1}s`;
-      for (let j = 0; j < 20; j++) {
-        const char = document.createElement('span');
-        char.className = 'matrix-char';
-        char.textContent = characters[Math.floor(Math.random() * characters.length)];
-        column.appendChild(char);
-      }
-      container.appendChild(column);
-    }
-    return () => {
-      document.body.removeChild(container);
-    };
-  }, []);
-  return null;
-};
+
 const Index = () => {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
   if (!mounted) return null;
-  return <div className="min-h-screen">
-      <MatrixRain />
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-section min-h-screen flex items-center justify-center px-4 py-20 relative">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="text-center relative z-10">
-          <motion.div initial={{
-          scale: 0.9,
-          opacity: 0
-        }} animate={{
-          scale: 1,
-          opacity: 1
-        }} transition={{
-          delay: 0.2
-        }} className="mb-8">
-            <Code2 className="w-16 h-16 mx-auto text-primary mb-6" />
+      <section className="h-[40rem] relative w-full bg-accent flex flex-col items-center justify-center overflow-hidden">
+        <div className="w-full absolute inset-0 h-full">
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="w-full h-full"
+            particleColor="#8B5CF6"
+            speed={0.5}
+          />
+        </div>
+        <div className="relative z-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+              al-Laythi Software Services
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto">
+              Crafting cutting-edge solutions with modern technology
+            </p>
+            <div className="relative">
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-primary to-transparent h-[2px] w-3/4 blur-sm" />
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-primary to-transparent h-px w-3/4" />
+              <a
+                href="#contact"
+                className="bg-primary text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 relative z-10"
+              >
+                Get in Touch
+              </a>
+            </div>
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">al-Laythi Software Services</h1>
-          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto">
-            Crafting cutting-edge solutions with modern technology
-          </p>
-          <a href="#contact" className="bg-primary text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
-            Get in Touch
-          </a>
-        </motion.div>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -178,6 +166,8 @@ const Index = () => {
           <p>© 2025 al-Laythi Software Services. All rights reserved.</p>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
