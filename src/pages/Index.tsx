@@ -175,7 +175,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 text-center text-slate-400">
         <div className="container mx-auto">
-          <p>© 2024 al-Laythi Software Services. All rights reserved.</p>
+          <p>© 2025 al-Laythi Software Services. All rights reserved.</p>
         </div>
       </footer>
     </div>;
