@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code2, Rocket, Server, Cpu, Database, Cloud, Lock } from "lucide-react";
 import { SparklesCore } from "@/components/ui/sparkles";
-
 const services = [{
   icon: <Code2 className="w-6 h-6" />,
   title: "Frontend Development",
@@ -28,9 +27,7 @@ const services = [{
   title: "Security Solutions",
   description: "Implementing robust security practices"
 }];
-
 const technologies = ["C#", ".NET Core", "React", "TypeScript", "Node.js", "SQL Server", "MongoDB", "Azure", "AWS", "Docker", "Kubernetes", "Git", "REST APIs", "GraphQL", "Redis", "CI/CD"];
-
 const Index = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -39,11 +36,11 @@ const Index = () => {
   if (!mounted) return null;
   return <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-[40rem] relative w-full bg-accent flex flex-col items-center justify-center overflow-hidden pt-20">
+      <section className="h-[40rem] relative w-full bg-accent flex flex-col items-center justify-center overflow-hidden">
         <div className="w-full absolute inset-0 h-full">
           <SparklesCore background="transparent" minSize={0.4} maxSize={1} particleDensity={1200} className="w-full h-full" particleColor="#8B5CF6" speed={0.5} />
         </div>
-        <div className="relative z-20 text-center mt-20">
+        <div className="relative z-20 text-center">
           <motion.div initial={{
           opacity: 0,
           y: 20
@@ -157,5 +154,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
