@@ -30,6 +30,39 @@ const services = [{
 
 const technologies = ["C#", ".NET Core", "React", "TypeScript", "Node.js", "SQL Server", "MongoDB", "Azure", "AWS", "Docker", "Kubernetes", "Git", "REST APIs", "GraphQL", "Redis", "CI/CD"];
 
+const MatrixRain = () => {
+  useEffect(() => {
+    const container = document.createElement('div');
+    container.className = 'matrix-rain';
+    document.body.appendChild(container);
+
+    const columns = Math.floor(window.innerWidth / 20);
+    const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+
+    for (let i = 0; i < columns; i++) {
+      const column = document.createElement('div');
+      column.className = 'matrix-column';
+      column.style.left = `${i * 20}px`;
+      column.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      
+      for (let j = 0; j < 20; j++) {
+        const char = document.createElement('span');
+        char.className = 'matrix-char';
+        char.textContent = characters[Math.floor(Math.random() * characters.length)];
+        column.appendChild(char);
+      }
+      
+      container.appendChild(column);
+    }
+
+    return () => {
+      document.body.removeChild(container);
+    };
+  }, []);
+
+  return null;
+};
+
 const Index = () => {
   const [mounted, setMounted] = useState(false);
 
@@ -41,6 +74,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <MatrixRain />
       {/* Hero Section */}
       <section className="hero-section min-h-screen flex items-center justify-center px-4 py-20 relative">
         <motion.div 
